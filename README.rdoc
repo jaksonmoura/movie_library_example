@@ -1,6 +1,6 @@
-## This application has been built for study purposes only.
+== This application has been built for study purposes only.
 
-## Gems I use
+== Gems I use
 The may gems I'm studying/using on this app are the following:
 * Sidekiq
 * Tire (elasticsearch)
@@ -8,14 +8,14 @@ The may gems I'm studying/using on this app are the following:
 * FactoryGirl
 * Faker
 
-### Set it up
+=== Set it up
 
 As the app uses sidekiq we need to install redis to make it works properly:
 
-> brew install redis
-> redis-server /usr/local/etc/redis.conf
-> bundle exec sidekiq
+    brew install redis
+    redis-server /usr/local/etc/redis.conf
+    bundle exec sidekiq
 
 Then run:
 
-> rails s
+    rails s

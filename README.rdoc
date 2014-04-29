@@ -1,4 +1,4 @@
-This application has been built for study purposes only.
+== This application has been built for study purposes only.
 
 == Gems I use
 The may gems I'm studying/using on this app are the following:
@@ -6,3 +6,4 @@ The may gems I'm studying/using on this app are the following:
 * Tire (elasticsearch)
 * Rspec
 * FactoryGirl
+* Faker

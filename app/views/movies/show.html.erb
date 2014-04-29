@@ -3,6 +3,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <p>
+      <%= image_tag("/assets/covers/"+@movie.cover.split('/')[6]) if @movie.cover? %>
       <strong>Title:</strong>
       <%= @movie.title %>
     </p>

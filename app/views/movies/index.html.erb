@@ -1,0 +1,31 @@
+<h1>Movies</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Release At</th>
+      <th>Summary</th>
+      <th>Rate</th>
+      <th>Duration</th>
+    </tr>
+    <% for movie in @movies %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.release_at %></td>
+        <td><%= movie.summary %></td>
+        <td><%= movie.rate %></td>
+        <td><%= movie.duration %></td>
+      <td>
+        <%= link_to "Show", movie, class: "btn btn-xs btn-default" %>
+        <%= link_to "Edit", edit_movie_path(movie), class: "btn btn-xs btn-success" %>
+        <%= link_to "Destroy", movie, data: { confirm:'Are you sure?' }, method: :delete, class: "btn btn-xs btn-danger" %>
+      </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class="actions">
+  <%= link_to "New Movie", new_movie_path, class: "btn btn-primary" %>
+</div>

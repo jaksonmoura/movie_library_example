@@ -29,7 +29,7 @@
 
   <div class="form-group">
     <%= f.label :rate %>
-    <%= f.text_field :rate, class: "form-control" %>
+    <%= f.select :rate, options_for_select( %w{F 10+ 12+ 14+ 16+ 18+} ), {include_blank: true}, class: "form-control" %>
   </div>
 
   <div class="form-group">

@@ -21,7 +21,7 @@ describe 'Movies' do
     fill_in 'Title', with: movie.title
     fill_in 'Release at', with: movie.release_at
     fill_in 'Summary', with: movie.summary
-    fill_in 'Rate', with: movie.rate
+    find('#movie_rate').set movie.rate
     fill_in 'Duration', with: movie.duration
 
     expect{ click_button 'Save' }.to change(Movie, :count).by(1)

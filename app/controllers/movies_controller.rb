@@ -2,7 +2,11 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.all
+    if params[:query].present?
+      @movies = Movie.search(params[:query], load: true)
+    else
+      @movies = Movie.all
+    end
   end
 
   def show

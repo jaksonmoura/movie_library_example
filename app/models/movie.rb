@@ -8,7 +8,15 @@ class Movie < ActiveRecord::Base
   end
 
   mapping do
-    indexes :id,           :index    => :not_analyzed
-    indexes :title,        :analyzer => 'snowball', :boost => 100
+    indexes :id,    :index    => :not_analyzed
+    indexes :title, :analyzer => 'snowball', :boost => 100
+    indexes :release_at, type: :date
+  end
+
+  def self.search(params)
+    tire.search(load: true) do
+      query { string params[:query] } if params[:query].present?
+      sort { by :release_at, :desc }
+    end
   end
 end

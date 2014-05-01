@@ -2,11 +2,7 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @movies = Movie.search(params[:query], load: true)
-    else
-      @movies = Movie.all
-    end
+    @movies = Movie.search(params)
   end
 
   def show
@@ -45,6 +41,7 @@ class MoviesController < ApplicationController
   end
   def destroy
     @movie.destroy
+    system "rake environment tire:import CLASS=Movie FORCE=true"
     respond_to do |format|
       format.html { redirect_to movies_url, notice: 'Movie was successfully removed.' }
       format.json { head :no_content }
